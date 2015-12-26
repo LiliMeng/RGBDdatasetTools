@@ -71,6 +71,7 @@ int main()
     while(frame_index<RGBDFileInfo.size())
     {
         Mat rgb_frame=imread(RGBDFileInfo[frame_index].rgb_frame, 1);
+        Mat depth_frame=imread(RGBDFileInfo[frame_index].depth_frame, -1);
 
         if(!rgb_frame.data )                              // Check for invalid input
         {
@@ -79,8 +80,20 @@ int main()
         }
 
         namedWindow( "RGB", WINDOW_AUTOSIZE );// Create a window for display.
-        imshow("RGB", rgb_frame);                   // Show our image inside it.
-        waitKey(0);
+        cv::imshow("RGB", rgb_frame);
+        cv::imshow("Depth", depth_frame);
+
+        char key = cv::waitKey(1);
+
+        if(key == 'q')
+        {
+            break;
+        }
+        else if(key == ' ')
+        {
+            key = cv::waitKey(0);
+        }
+
         frame_index++;
     }
 
