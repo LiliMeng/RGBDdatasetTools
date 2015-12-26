@@ -28,7 +28,6 @@ void readRGBDdata(string filename)
 
     string line, word;
 
-
     fstream fin;
 
     fin.open(filename);
@@ -60,16 +59,7 @@ void readRGBDdata(string filename)
 
     fin.close();
 
-}
-
-
-int main()
-{
-    readRGBDdata("/home/lili/workspace/SLAM/src/rgbd_dataset_freiburg1_desk2/associatedData.txt");
-
     int frame_index = 0;
-
-    cout<<RGBDFileInfo.size()<<endl;
 
     while(frame_index<RGBDFileInfo.size())
     {
@@ -79,7 +69,7 @@ int main()
         if(!rgb_frame.data )                              // Check for invalid input
         {
             cout <<  "Could not open or find the image" << std::endl ;
-            return -1;
+
         }
 
         namedWindow( "RGB", WINDOW_AUTOSIZE );// Create a window for display.
@@ -100,7 +90,13 @@ int main()
         frame_index++;
     }
 
-    return 0;
+}
 
+
+int main()
+{
+    readRGBDdata("/home/lili/workspace/SLAM/src/rgbd_dataset_freiburg1_desk2/associatedData.txt");
+
+    return 0;
 
 }
