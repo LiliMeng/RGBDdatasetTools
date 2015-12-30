@@ -1,3 +1,6 @@
+%cut -d ' ' -f 2-4 groundtruth.txt >output_ground_truth.txt 用shell命令直接在命令行里打
+
+
 fid1 = fopen('associatedDataFinal.txt');
 C = textscan(fid1, '%s %s %s %s');
 
