@@ -1,4 +1,6 @@
 %cut -d ' ' -f 2-4 groundtruth.txt >output_ground_truth.txt 用shell命令直接在命令行里打
+% cut -d ' ' -f 2-5 Fr1xyzcamera_pose_FOVISJan11Trial1.txt >fovisJan11Trial1.txt
+
 
 
 fid1 = fopen('associatedDataFinal.txt');
